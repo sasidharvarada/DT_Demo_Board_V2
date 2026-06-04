@@ -18,7 +18,7 @@ import adafruit_sgp30
 API_BASE = "https://smartcitylivinglab.iiit.ac.in/smartcitydigitaltwin-api/demo-board"
 NODE_ID = 1
 
-ESP_IP = "10.2.135.210"
+ESP_IP = "10.2.130.18"
 ESP_PORT = 8100
 ESP_URL = f"http://{ESP_IP}:{ESP_PORT}/data"
 

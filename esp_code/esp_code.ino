@@ -2,11 +2,10 @@
 #include <WebServer.h>
 #include <FastLED.h>
 #include <ArduinoJson.h>
-#include "esp_wpa2.h"
 
 // ---------------- LED CONFIG ----------------
 #define STRIP_LEDS 7
-#define TUBE_LEDS 8
+#define TUBE_LEDS  8
 
 #define LED1 4
 #define LED2 17
@@ -18,9 +17,11 @@
 #define STRIP3_PIN 26
 #define STRIP4_PIN 25
 
-#define BUZZER 18
+#define BUZZER   18
 #define TUBE_PIN 19
-#define FAN_PIN 33
+#define FAN_PIN  33
+
+#define BRIGHTNESS 100
 
 CRGB strip1[STRIP_LEDS];
 CRGB strip2[STRIP_LEDS];
@@ -28,48 +29,30 @@ CRGB strip3[STRIP_LEDS];
 CRGB strip4[STRIP_LEDS];
 CRGB tube[TUBE_LEDS];
 
-CRGB* strips[4] = {strip1, strip2, strip3, strip4};
-int ledPins[4] = {LED1, LED2, LED3, LED4};
+CRGB* strips[4]  = { strip1, strip2, strip3, strip4 };
+int   ledPins[4] = { LED1, LED2, LED3, LED4 };
 
 WebServer server(8100);
 
+int animationQueue[4];
+int queueSize = 0;
+int queueIndex = 0;
+int currentStrip = -1;
+
 // ---------------- WIFI ----------------
-const char* ssid1 = "IIIT-Guest";
-const char* pass1 = "f6s68VHJ89mC";
-
-const char* ssid2 = "wifi@iiith";
-const char* username = "sasidhar.varada@research.iiit.ac.in";
-const char* password2 = "Sasi#$802";
-
-// ---------------- MODE ----------------
-enum Mode { DEMO, MANUAL };
-Mode systemMode = DEMO;
-
-unsigned long lastCommandTime = 0;
-const unsigned long MANUAL_TIMEOUT = 300000; // 5 min
-
-// ---------------- DEMO ----------------
-unsigned long lastDemoUpdate = 0;
-int demoStep = 0;
-int currentStrip = 0;
-
-unsigned long actuatorStart = 0;
-bool actuatorActive = false;
-int activeActuator = -1;
+const char* ssid = "IIIT-Guest";
+const char* pass = "f6s68VHJ89mC";
 
 // ---------------- STATES ----------------
-enum State {IDLE, ANIMATING};
-State stripState[4] = {IDLE, IDLE, IDLE, IDLE};
-int snakePos[4] = {0};
-
+int   snakePos[4]   = { 0 };
 unsigned long lastUpdate = 0;
-int moveSpeed = 120;
+int moveSpeed = 100;  
 
 // ---------------- DEVICES ----------------
-int buzzer_mode = 0;
-bool tube_state = 0;
-CRGB tubeColor = CRGB::White;
-int fan_speed = 0;
+int   buzzer_mode = 0;
+bool  tube_state  = false;
+CRGB  tubeColor   = CRGB::White;
+int   fan_speed   = 0;
 
 // ---------------- WIFI CONNECT ----------------
 void connectWiFi()
@@ -77,8 +60,8 @@ void connectWiFi()
   WiFi.disconnect(true);
   WiFi.mode(WIFI_STA);
 
-  Serial.println("Trying IIIT-Guest...");
-  WiFi.begin(ssid1, pass1);
+  Serial.println("Connecting to IIIT-Guest...");
+  WiFi.begin(ssid, pass);
 
   int attempt = 0;
   while (WiFi.status() != WL_CONNECTED && attempt < 20)
@@ -92,161 +75,140 @@ void connectWiFi()
   {
     Serial.println("\nConnected to IIIT-Guest");
     Serial.println(WiFi.localIP());
-    return;
-  }
-
-  Serial.println("\nFallback to WPA2 Enterprise...");
-
-  WiFi.disconnect(true);
-  delay(1000);
-
-  esp_wifi_sta_wpa2_ent_enable();
-  esp_wifi_sta_wpa2_ent_set_identity((uint8_t *)username, strlen(username));
-  esp_wifi_sta_wpa2_ent_set_username((uint8_t *)username, strlen(username));
-  esp_wifi_sta_wpa2_ent_set_password((uint8_t *)password2, strlen(password2));
-
-  WiFi.begin(ssid2);
-
-  attempt = 0;
-  while (WiFi.status() != WL_CONNECTED && attempt < 40)
-  {
-    delay(500);
-    Serial.print("#");
-    attempt++;
-  }
-
-  if (WiFi.status() == WL_CONNECTED)
-  {
-    Serial.println("\nConnected to WPA2 Enterprise");
-    Serial.println(WiFi.localIP());
   }
   else
   {
-    Serial.println("\nWiFi Failed → Running Demo Mode");
+    Serial.println("\nWiFi connection failed. Retrying in 10s...");
   }
 }
 
-// ---------------- SNAKE ----------------
-void gradientSnake(CRGB *strip, int &pos)
+// ---------------- CLEAR ANIMATION STRIPS ----------------
+void clearAllStrips()
 {
-  fill_solid(strip, STRIP_LEDS, CRGB::Black);
+  // Wipes Strips 1-4 ONLY. Leaves tube untouched.
+  fill_solid(strip1, STRIP_LEDS, CRGB::Black);
+  fill_solid(strip2, STRIP_LEDS, CRGB::Black);
+  fill_solid(strip3, STRIP_LEDS, CRGB::Black);
+  fill_solid(strip4, STRIP_LEDS, CRGB::Black);
+}
 
+// ---------------- SNAKE ANIMATION ----------------
+bool gradientSnake(CRGB* strip, int& pos)
+{
   int i = STRIP_LEDS - 1 - pos;
 
-  if(i>=0 && i<STRIP_LEDS) strip[i] = CRGB(0,0,255);
-  if(i+1<STRIP_LEDS) strip[i+1] = CRGB(0,0,180);
-  if(i+2<STRIP_LEDS) strip[i+2] = CRGB(0,0,100);
+  if (i >= 0 && i < STRIP_LEDS)
+    strip[i] = CRGB(0, 0, 255);
+
+  if (i + 1 >= 0 && i + 1 < STRIP_LEDS)
+    strip[i + 1] = CRGB(0, 0, 180);
+
+  if (i + 2 >= 0 && i + 2 < STRIP_LEDS)
+    strip[i + 2] = CRGB(0, 0, 80);
 
   pos++;
 
-  if(pos > STRIP_LEDS + 2)
-    pos = 0;
-}
-
-// ---------------- DEMO ----------------
-void runDemo()
-{
-  if(millis() - lastDemoUpdate < 2000) return;
-  lastDemoUpdate = millis();
-
-  currentStrip = random(0,4);
-  stripState[currentStrip] = ANIMATING;
-  snakePos[currentStrip] = 0;
-
-  demoStep++;
-
-  // every 3 cycles → ONLY tube + fan
-  if(demoStep % 3 == 0 && !actuatorActive)
-  {
-    activeActuator = random(0,2); // 0 = tube, 1 = fan
-
-    actuatorActive = true;
-    actuatorStart = millis();
-
-    if(activeActuator == 0)
-    {
-      tube_state = 1;
-    }
-    else if(activeActuator == 1)
-    {
-      fan_speed = 200;
-    }
-  }
-}
-
-void handleActuatorTimeout()
-{
-  if(actuatorActive && millis() - actuatorStart > 5000)
-  {
-    actuatorActive = false;
-
-    buzzer_mode = 0;
-    tube_state = 0;
-    fan_speed = 0;
-  }
+  return (pos >= STRIP_LEDS + 2);
 }
 
 // ---------------- BUZZER ----------------
 void buzzerControl()
 {
-  if(buzzer_mode == 0)
+  if (buzzer_mode == 0)
   {
     noTone(BUZZER);
     return;
   }
 
-  tone(BUZZER, 2000);
+  unsigned long period;
+  if      (buzzer_mode == 1) period = 1600; 
+  else if (buzzer_mode == 2) period = 800;  
+  else                       period = 300;  
+
+  unsigned long half = period / 2;
+  unsigned long t    = millis() % period;
+
+  if (t < half)
+    tone(BUZZER, 2000);
+  else
+    noTone(BUZZER);
 }
 
-// ---------------- HTTP ----------------
+// ---------------- HTTP HANDLER ----------------
 void handleData()
 {
   String body = server.arg("plain");
 
+  Serial.println("\n========== DATA RECEIVED ==========");
+  Serial.print("Raw JSON: ");
+  Serial.println(body);
+
   StaticJsonDocument<200> doc;
 
-  if(deserializeJson(doc, body))
+  if (deserializeJson(doc, body))
   {
-    server.send(400,"text/plain","JSON ERROR");
+    Serial.println("JSON Parse Error");
+    server.send(400, "text/plain", "JSON ERROR");
     return;
   }
 
   JsonArray arr = doc["cmd"];
 
-  if(arr.size() < 8)
+  if (arr.size() < 8)
   {
-    server.send(400,"text/plain","INVALID");
+    Serial.println("Invalid Command Array");
+    server.send(400, "text/plain", "INVALID");
     return;
   }
 
-  systemMode = MANUAL;
-  lastCommandTime = millis();
-
-  for(int i=0;i<4;i++)
+  if (currentStrip == -1 && queueIndex >= queueSize)
   {
-    if(arr[i]==1)
+    queueSize = 0;
+    queueIndex = 0;
+
+    clearAllStrips();
+    
+    for (int i = 0; i < 4; i++)
     {
-      stripState[i] = ANIMATING;
       snakePos[i] = 0;
-      digitalWrite(ledPins[i], LOW);
-    }
-    else
-    {
-      stripState[i] = IDLE;
-      fill_solid(strips[i], STRIP_LEDS, CRGB::Black);
+
+      if (arr[i] == 1)
+      {
+        animationQueue[queueSize++] = i;
+      }
       digitalWrite(ledPins[i], HIGH);
     }
   }
+  else
+  {
+    Serial.println("Queue Busy - Ignoring New Strip Command");
+  }
 
-  buzzer_mode = arr[4];
-  tube_state  = arr[5];
+  buzzer_mode = arr[4].as<int>();
+  tube_state  = (arr[5].as<int>() == 1); 
 
   JsonArray rgb = arr[6];
-  tubeColor = CRGB(rgb[0], rgb[1], rgb[2]);
+  tubeColor = CRGB(rgb[0].as<int>(), rgb[1].as<int>(), rgb[2].as<int>());
 
-  fan_speed = arr[7];
+  fan_speed = arr[7].as<int>();
 
-  server.send(200,"text/plain","OK");
+  Serial.print("TUBE LEDs = ");
+  Serial.println(TUBE_LEDS);
+  Serial.print("Tube State Received = ");
+  Serial.println(tube_state);
+  Serial.print("tubeColor RGB = ");
+  Serial.print(tubeColor.r); Serial.print(",");
+  Serial.print(tubeColor.g); Serial.print(",");
+  Serial.println(tubeColor.b);
+  Serial.println("===================================");
+
+  // Instantly apply the tube colors to the buffer
+  fill_solid(tube, TUBE_LEDS, tube_state ? tubeColor : CRGB::Black);
+
+  // Force the new state to push to the physical LEDs instantly
+  FastLED.show(); 
+
+  server.send(200, "text/plain", "OK");
 }
 
 // ---------------- SETUP ----------------
@@ -254,26 +216,33 @@ void setup()
 {
   Serial.begin(115200);
 
-  for(int i=0;i<4;i++)
+  for (int i = 0; i < 4; i++)
   {
     pinMode(ledPins[i], OUTPUT);
     digitalWrite(ledPins[i], HIGH);
   }
 
   pinMode(BUZZER, OUTPUT);
-
-  ledcAttach(FAN_PIN,1000,8);
+  ledcAttach(FAN_PIN, 1000, 8);
 
   connectWiFi();
 
-  FastLED.addLeds<WS2812B,STRIP1_PIN,GRB>(strip1,STRIP_LEDS);
-  FastLED.addLeds<WS2812B,STRIP2_PIN,GRB>(strip2,STRIP_LEDS);
-  FastLED.addLeds<WS2812B,STRIP3_PIN,GRB>(strip3,STRIP_LEDS);
-  FastLED.addLeds<WS2812B,STRIP4_PIN,GRB>(strip4,STRIP_LEDS);
-  FastLED.addLeds<WS2812B,TUBE_PIN,GRB>(tube,TUBE_LEDS);
+  FastLED.addLeds<WS2812B, STRIP1_PIN, GRB>(strip1, STRIP_LEDS);
+  FastLED.addLeds<WS2812B, STRIP2_PIN, GRB>(strip2, STRIP_LEDS);
+  FastLED.addLeds<WS2812B, STRIP3_PIN, GRB>(strip3, STRIP_LEDS);
+  FastLED.addLeds<WS2812B, STRIP4_PIN, GRB>(strip4, STRIP_LEDS);
+  FastLED.addLeds<WS2812B, TUBE_PIN,   GRB>(tube,   TUBE_LEDS);
 
-  server.on("/data",HTTP_POST,handleData);
+  FastLED.setBrightness(BRIGHTNESS);
+
+  clearAllStrips();
+  fill_solid(tube, TUBE_LEDS, CRGB::Black);
+  FastLED.show();
+
+  server.on("/data", HTTP_POST, handleData);
   server.begin();
+
+  Serial.println("Server started on port 8100");
 }
 
 // ---------------- LOOP ----------------
@@ -281,62 +250,57 @@ void loop()
 {
   server.handleClient();
 
-  // WiFi auto-reconnect
-  if(WiFi.status() != WL_CONNECTED)
+  if (WiFi.status() != WL_CONNECTED)
   {
     static unsigned long lastRetry = 0;
-    if(millis() - lastRetry > 10000)
+    if (millis() - lastRetry > 10000)
     {
       lastRetry = millis();
       connectWiFi();
     }
   }
 
-  // fallback after 5 min
-  if(systemMode == MANUAL && millis() - lastCommandTime > MANUAL_TIMEOUT)
-  {
-    systemMode = DEMO;
+  // --- ANIMATION ENGINE (STRIPS 1-4 ONLY) ---
+  bool isAnimating = (currentStrip != -1 || queueIndex < queueSize);
 
-    // reset system cleanly
-    buzzer_mode = 0;
-    tube_state = 0;
-    fan_speed = 0;
-  }
-
-  if(systemMode == DEMO)
-  {
-    runDemo();
-    handleActuatorTimeout();
-  }
-
-  // animation engine
-  if(millis() - lastUpdate > moveSpeed)
+  if (isAnimating && (millis() - lastUpdate > moveSpeed))
   {
     lastUpdate = millis();
+    clearAllStrips();
 
-    for(int i=0;i<4;i++)
+    if (currentStrip == -1 && queueIndex < queueSize)
     {
-      if(stripState[i] == ANIMATING)
-      {
-        gradientSnake(strips[i], snakePos[i]);
-
-        if(snakePos[i] == 0)
-        {
-          stripState[i] = IDLE;
-          digitalWrite(ledPins[i], HIGH);
-        }
-      }
+      currentStrip = animationQueue[queueIndex];
+      snakePos[currentStrip] = 0;
+      digitalWrite(ledPins[currentStrip], LOW);
     }
 
+    if (currentStrip != -1)
+    {
+      bool done = gradientSnake(strips[currentStrip], snakePos[currentStrip]);
+
+      if (done)
+      {
+        fill_solid(strips[currentStrip], STRIP_LEDS, CRGB::Black);
+        digitalWrite(ledPins[currentStrip], HIGH);
+        currentStrip = -1;
+        queueIndex++;
+      }
+    }
+    
+    // FastLED.show() triggered by the animation engine pushes all strips AND the tube
     FastLED.show();
   }
 
-  // tube
-  fill_solid(tube, TUBE_LEDS, tube_state ? tubeColor : CRGB::Black);
+  // --- TUBE EXACTLY LIKE REFERENCE CODE ---
+  // Constantly maintain the tube buffer every single loop iteration
+  fill_solid(
+      tube,
+      TUBE_LEDS,
+      tube_state ? tubeColor : CRGB::Black
+  );
 
-  // buzzer
+  // --- PERIPHERALS ---
   buzzerControl();
-
-  // fan
   ledcWrite(FAN_PIN, fan_speed);
 }

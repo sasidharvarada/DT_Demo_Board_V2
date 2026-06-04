@@ -2,7 +2,7 @@ import requests
 import time
 import random
 
-ESP_IP = "10.2.135.210"
+ESP_IP = "10.2.130.18"
 PORT = 8100
 
 url = f"http://{ESP_IP}:{PORT}/data"

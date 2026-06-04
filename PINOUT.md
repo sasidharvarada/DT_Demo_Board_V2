@@ -7,9 +7,9 @@
 | Function | LED Pin | Strip Pin |
 |----------|---------|-----------|
 | CO2      | 4       | 14        |
-| Temp     | 17      | 27        |
+| PIR      | 17      | 27        |
 | Lux      | 5       | 26        |
-| PIR      | 16      | 25        |
+| Temp     | 16      | 25        |
 
 ### Actuators
 
@@ -27,18 +27,19 @@
 
 | Button      | GPIO Pin |
 |-------------|----------|
-| CO2 Button  | 19       |
+| CO2 Button  | 19       |  
 | Temp Button | 13       |
 | Lux Button  | 6        |
 | PIR         | Manual switch |
 
-### Sensor Pins (Lux, Temp, CO2)
+### Sensor Pins (Lux, Co2, Temp)
 
 | Signal | GPIO Pin |
 |--------|----------|
 | SDA    | 2        |
 | SCL    | 3        |
 | PIR    | 4        |
+| Co2    | 5        |
 
 ### Scenario Push Buttons
 
