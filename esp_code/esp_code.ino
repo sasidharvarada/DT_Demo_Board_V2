@@ -40,8 +40,8 @@ int queueIndex = 0;
 int currentStrip = -1;
 
 // ---------------- WIFI ----------------
-const char* ssid = "IIIT-Guest";
-const char* pass = "f6s68VHJ89mC";
+const char* ssid = "SCRC_LAB_IOT";
+const char* pass = "Scrciiith@123";
 
 // ---------------- STATES ----------------
 int   snakePos[4]   = { 0 };
