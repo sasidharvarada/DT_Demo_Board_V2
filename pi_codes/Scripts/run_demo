@@ -12,7 +12,7 @@ This project runs a Raspberry Pi agent for sensors, push buttons, and ESP actuat
   - Polls pending commands.
   - Pushes actuator command packets to ESP endpoint.
 
-- `test.py`:
+- `test_1.py`:
   - Hardware test script for sensors and push buttons.
   - Prints sensor values and button actions locally.
   - Use this for quick validation before starting service.

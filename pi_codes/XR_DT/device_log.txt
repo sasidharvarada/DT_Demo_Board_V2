@@ -1,0 +1,244 @@
+2026-06-20 18:34:23,889  WARNING   403 TOKEN MISMATCH  POST /api/services/switch/turn_on  client=10.2.201.236  got=...u6H9rQjyZX1ENwgfJxbs
+2026-06-20 18:34:23,889  WARNING   403 TOKEN MISMATCH  POST /api/services/switch/turn_on  client=10.2.201.236  got=...u6H9rQjyZX1ENwgfJxbs
+2026-06-20 18:34:43,389  WARNING   403 TOKEN MISMATCH  POST /api/services/switch/turn_on  client=10.2.142.44  got=...u6H9rQjyZX1ENwgfJxbs
+2026-06-20 18:34:43,389  WARNING   403 TOKEN MISMATCH  POST /api/services/switch/turn_on  client=10.2.142.44  got=...u6H9rQjyZX1ENwgfJxbs
+2026-06-20 18:35:28,123  WARNING   403 TOKEN MISMATCH  GET /api/entities  client=10.2.142.44  got=...u6H9rQjyZX1ENwgfJxbs
+2026-06-20 18:35:28,123  WARNING   403 TOKEN MISMATCH  GET /api/entities  client=10.2.142.44  got=...u6H9rQjyZX1ENwgfJxbs
+2026-06-20 18:37:35,409  INFO      TURN_OFF  switch.fan  off->off  client=10.2.201.236
+2026-06-20 18:37:35,409  INFO      TURN_OFF  switch.fan  off->off  client=10.2.201.236
+2026-06-20 18:37:35,413  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:37:35,413  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:37:36,162  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:36,162  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:36,480  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:37:36,480  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:37:36,481  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:36,481  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:36,758  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:36,758  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:43,689  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:37:43,689  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:37:43,694  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:37:43,694  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:37:44,019  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:44,019  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:46,308  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:37:46,308  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:37:46,310  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:46,310  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:46,507  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:46,507  INFO      ESP32 RESP  200  OK
+2026-06-20 18:37:52,624  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:37:52,624  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:37:52,625  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:52,625  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:58,402  ERROR     ESP32 ERROR  
+2026-06-20 18:37:58,402  ERROR     ESP32 ERROR  
+2026-06-20 18:37:58,648  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:37:58,648  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:37:58,650  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:37:58,650  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:38:00,526  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:38:00,526  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:38:00,529  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:38:00,529  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:38:03,544  INFO      ESP32 RESP  200  OK
+2026-06-20 18:38:03,544  INFO      ESP32 RESP  200  OK
+2026-06-20 18:38:05,671  ERROR     ESP32 ERROR  
+2026-06-20 18:38:05,671  ERROR     ESP32 ERROR  
+2026-06-20 18:38:24,144  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:38:24,144  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:38:24,146  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:38:24,146  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:38:29,685  INFO      ESP32 RESP  200  OK
+2026-06-20 18:38:29,685  INFO      ESP32 RESP  200  OK
+2026-06-20 18:38:32,810  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:38:32,810  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:38:32,812  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:38:32,812  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:38:37,937  ERROR     ESP32 ERROR  
+2026-06-20 18:38:37,937  ERROR     ESP32 ERROR  
+2026-06-20 18:39:08,003  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:39:08,003  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:39:08,004  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:39:08,004  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:39:12,753  INFO      ESP32 RESP  200  OK
+2026-06-20 18:39:12,753  INFO      ESP32 RESP  200  OK
+2026-06-20 18:39:28,471  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:39:28,471  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:39:28,474  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:39:28,474  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:39:35,004  ERROR     ESP32 ERROR  
+2026-06-20 18:39:35,004  ERROR     ESP32 ERROR  
+2026-06-20 18:39:57,816  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:39:57,816  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:39:57,817  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:39:57,817  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:02,093  INFO      ESP32 RESP  200  OK
+2026-06-20 18:40:02,093  INFO      ESP32 RESP  200  OK
+2026-06-20 18:40:02,724  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:40:02,724  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:40:02,725  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:02,725  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:07,869  ERROR     ESP32 ERROR  
+2026-06-20 18:40:07,869  ERROR     ESP32 ERROR  
+2026-06-20 18:40:20,262  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:40:20,262  INFO      TURN_ON  switch.fan  on->on  client=10.2.201.236
+2026-06-20 18:40:20,264  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:20,264  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:22,451  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:40:22,451  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:40:22,453  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:40:22,453  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:40:25,412  ERROR     ESP32 ERROR  
+2026-06-20 18:40:25,412  ERROR     ESP32 ERROR  
+2026-06-20 18:40:27,640  ERROR     ESP32 ERROR  
+2026-06-20 18:40:27,640  ERROR     ESP32 ERROR  
+2026-06-20 18:40:50,610  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:40:50,610  INFO      TURN_ON  switch.fan  off->on  client=10.2.201.236
+2026-06-20 18:40:50,611  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:50,611  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:40:57,229  ERROR     ESP32 ERROR  
+2026-06-20 18:40:57,229  ERROR     ESP32 ERROR  
+2026-06-20 18:40:57,459  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:40:57,459  INFO      TURN_OFF  switch.fan  on->off  client=10.2.201.236
+2026-06-20 18:40:57,462  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:40:57,462  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:41:04,588  ERROR     ESP32 ERROR  
+2026-06-20 18:41:04,588  ERROR     ESP32 ERROR  
+2026-06-20 18:41:34,700  INFO      WS CONNECT  10.2.201.236:38058
+2026-06-20 18:41:34,700  INFO      WS CONNECT  10.2.201.236:38058
+2026-06-20 18:41:34,747  INFO      WS AUTH OK  10.2.201.236:38058
+2026-06-20 18:41:34,747  INFO      WS AUTH OK  10.2.201.236:38058
+2026-06-20 18:41:34,781  INFO      WS CONNECT  10.2.201.236:38066
+2026-06-20 18:41:34,781  INFO      WS CONNECT  10.2.201.236:38066
+2026-06-20 18:41:34,784  INFO      WS SUBSCRIBED  10.2.201.236:38058  total=1
+2026-06-20 18:41:34,784  INFO      WS SUBSCRIBED  10.2.201.236:38058  total=1
+2026-06-20 18:41:34,802  INFO      WS AUTH OK  10.2.201.236:38066
+2026-06-20 18:41:34,802  INFO      WS AUTH OK  10.2.201.236:38066
+2026-06-20 18:41:34,814  INFO      WS SUBSCRIBED  10.2.201.236:38066  total=2
+2026-06-20 18:41:34,814  INFO      WS SUBSCRIBED  10.2.201.236:38066  total=2
+2026-06-20 18:42:11,436  INFO      WS DISCONNECT  10.2.201.236:38058
+2026-06-20 18:42:11,436  INFO      WS DISCONNECT  10.2.201.236:38058
+2026-06-20 18:42:11,470  INFO      WS DISCONNECT  10.2.201.236:38066
+2026-06-20 18:42:11,470  INFO      WS DISCONNECT  10.2.201.236:38066
+2026-06-20 18:42:43,200  INFO      GET STATE  switch.rgb_white=off  client=10.2.201.236
+2026-06-20 18:42:43,200  INFO      GET STATE  switch.rgb_white=off  client=10.2.201.236
+2026-06-20 18:42:43,205  INFO      GET STATE  switch.rgb_white=off  client=10.2.201.236
+2026-06-20 18:42:43,205  INFO      GET STATE  switch.rgb_white=off  client=10.2.201.236
+2026-06-20 18:42:43,277  INFO      WS CONNECT  10.2.201.236:35946
+2026-06-20 18:42:43,277  INFO      WS CONNECT  10.2.201.236:35946
+2026-06-20 18:42:43,304  INFO      WS AUTH OK  10.2.201.236:35946
+2026-06-20 18:42:43,304  INFO      WS AUTH OK  10.2.201.236:35946
+2026-06-20 18:42:43,328  INFO      WS CONNECT  10.2.201.236:35948
+2026-06-20 18:42:43,328  INFO      WS CONNECT  10.2.201.236:35948
+2026-06-20 18:42:43,333  INFO      WS SUBSCRIBED  10.2.201.236:35946  total=1
+2026-06-20 18:42:43,333  INFO      WS SUBSCRIBED  10.2.201.236:35946  total=1
+2026-06-20 18:42:43,371  INFO      WS AUTH OK  10.2.201.236:35948
+2026-06-20 18:42:43,371  INFO      WS AUTH OK  10.2.201.236:35948
+2026-06-20 18:42:43,383  INFO      WS SUBSCRIBED  10.2.201.236:35948  total=2
+2026-06-20 18:42:43,383  INFO      WS SUBSCRIBED  10.2.201.236:35948  total=2
+2026-06-20 18:42:52,567  INFO      TURN_ON  switch.rgb_white  off->on  client=10.2.201.236
+2026-06-20 18:42:52,567  INFO      TURN_ON  switch.rgb_white  off->on  client=10.2.201.236
+2026-06-20 18:42:52,568  INFO      ESP32 CMD  entity=switch.rgb_white  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [255, 255, 255], 0]
+2026-06-20 18:42:52,568  INFO      ESP32 CMD  entity=switch.rgb_white  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [255, 255, 255], 0]
+2026-06-20 18:42:53,871  INFO      ESP32 RESP  200  OK
+2026-06-20 18:42:53,871  INFO      ESP32 RESP  200  OK
+2026-06-20 18:43:12,293  INFO      WS DISCONNECT  10.2.201.236:35946
+2026-06-20 18:43:12,293  INFO      WS DISCONNECT  10.2.201.236:35946
+2026-06-20 18:43:12,307  INFO      WS DISCONNECT  10.2.201.236:35948
+2026-06-20 18:43:12,307  INFO      WS DISCONNECT  10.2.201.236:35948
+2026-06-20 18:43:39,169  INFO      GET STATE  switch.buzzer=off  client=10.2.201.236
+2026-06-20 18:43:39,169  INFO      GET STATE  switch.buzzer=off  client=10.2.201.236
+2026-06-20 18:43:39,172  INFO      GET STATE  switch.buzzer=off  client=10.2.201.236
+2026-06-20 18:43:39,172  INFO      GET STATE  switch.buzzer=off  client=10.2.201.236
+2026-06-20 18:43:39,216  INFO      WS CONNECT  10.2.201.236:45680
+2026-06-20 18:43:39,216  INFO      WS CONNECT  10.2.201.236:45680
+2026-06-20 18:43:39,241  INFO      WS AUTH OK  10.2.201.236:45680
+2026-06-20 18:43:39,241  INFO      WS AUTH OK  10.2.201.236:45680
+2026-06-20 18:43:39,254  INFO      WS CONNECT  10.2.201.236:45690
+2026-06-20 18:43:39,254  INFO      WS CONNECT  10.2.201.236:45690
+2026-06-20 18:43:39,327  INFO      WS SUBSCRIBED  10.2.201.236:45680  total=1
+2026-06-20 18:43:39,327  INFO      WS SUBSCRIBED  10.2.201.236:45680  total=1
+2026-06-20 18:43:39,348  INFO      WS AUTH OK  10.2.201.236:45690
+2026-06-20 18:43:39,348  INFO      WS AUTH OK  10.2.201.236:45690
+2026-06-20 18:43:39,362  INFO      WS SUBSCRIBED  10.2.201.236:45690  total=2
+2026-06-20 18:43:39,362  INFO      WS SUBSCRIBED  10.2.201.236:45690  total=2
+2026-06-20 18:43:47,929  INFO      TURN_ON  switch.buzzer  off->on  client=10.2.201.236
+2026-06-20 18:43:47,929  INFO      TURN_ON  switch.buzzer  off->on  client=10.2.201.236
+2026-06-20 18:43:47,930  INFO      ESP32 CMD  entity=switch.buzzer  key=buzzer  cmd=[0, 0, 0, 0, 1, 0, [255, 255, 255], 0]
+2026-06-20 18:43:47,930  INFO      ESP32 CMD  entity=switch.buzzer  key=buzzer  cmd=[0, 0, 0, 0, 1, 0, [255, 255, 255], 0]
+2026-06-20 18:43:48,313  INFO      ESP32 RESP  200  OK
+2026-06-20 18:43:48,313  INFO      ESP32 RESP  200  OK
+2026-06-20 18:43:49,770  INFO      TURN_OFF  switch.buzzer  on->off  client=10.2.201.236
+2026-06-20 18:43:49,770  INFO      TURN_OFF  switch.buzzer  on->off  client=10.2.201.236
+2026-06-20 18:43:49,771  INFO      ESP32 CMD  entity=switch.buzzer  key=buzzer  cmd=[0, 0, 0, 0, 0, 0, [255, 255, 255], 0]
+2026-06-20 18:43:49,771  INFO      ESP32 CMD  entity=switch.buzzer  key=buzzer  cmd=[0, 0, 0, 0, 0, 0, [255, 255, 255], 0]
+2026-06-20 18:43:50,015  INFO      ESP32 RESP  200  OK
+2026-06-20 18:43:50,015  INFO      ESP32 RESP  200  OK
+2026-06-20 18:44:33,471  INFO      GET STATE  switch.rgb_blue=off  client=10.2.201.236
+2026-06-20 18:44:33,471  INFO      GET STATE  switch.rgb_blue=off  client=10.2.201.236
+2026-06-20 18:44:33,478  INFO      GET STATE  switch.rgb_blue=off  client=10.2.201.236
+2026-06-20 18:44:33,478  INFO      GET STATE  switch.rgb_blue=off  client=10.2.201.236
+2026-06-20 18:44:33,543  INFO      WS CONNECT  10.2.201.236:54856
+2026-06-20 18:44:33,543  INFO      WS CONNECT  10.2.201.236:54856
+2026-06-20 18:44:33,562  INFO      WS AUTH OK  10.2.201.236:54856
+2026-06-20 18:44:33,562  INFO      WS AUTH OK  10.2.201.236:54856
+2026-06-20 18:44:33,577  INFO      WS CONNECT  10.2.201.236:54870
+2026-06-20 18:44:33,577  INFO      WS CONNECT  10.2.201.236:54870
+2026-06-20 18:44:33,582  INFO      WS SUBSCRIBED  10.2.201.236:54856  total=3
+2026-06-20 18:44:33,582  INFO      WS SUBSCRIBED  10.2.201.236:54856  total=3
+2026-06-20 18:44:33,595  INFO      WS AUTH OK  10.2.201.236:54870
+2026-06-20 18:44:33,595  INFO      WS AUTH OK  10.2.201.236:54870
+2026-06-20 18:44:33,636  INFO      WS SUBSCRIBED  10.2.201.236:54870  total=4
+2026-06-20 18:44:33,636  INFO      WS SUBSCRIBED  10.2.201.236:54870  total=4
+2026-06-20 18:44:50,585  INFO      TURN_ON  switch.rgb_blue  off->on  client=10.2.201.236
+2026-06-20 18:44:50,585  INFO      TURN_ON  switch.rgb_blue  off->on  client=10.2.201.236
+2026-06-20 18:44:50,586  INFO      ESP32 CMD  entity=switch.rgb_blue  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 255], 0]
+2026-06-20 18:44:50,586  INFO      ESP32 CMD  entity=switch.rgb_blue  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 255], 0]
+2026-06-20 18:44:50,806  INFO      ESP32 RESP  200  OK
+2026-06-20 18:44:50,806  INFO      ESP32 RESP  200  OK
+2026-06-20 18:45:10,388  INFO      TURN_OFF  switch.rgb_blue  on->off  client=10.2.201.236
+2026-06-20 18:45:10,388  INFO      TURN_OFF  switch.rgb_blue  on->off  client=10.2.201.236
+2026-06-20 18:45:10,390  INFO      ESP32 CMD  entity=switch.rgb_blue  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:45:10,390  INFO      ESP32 CMD  entity=switch.rgb_blue  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:45:10,646  INFO      ESP32 RESP  200  OK
+2026-06-20 18:45:10,646  INFO      ESP32 RESP  200  OK
+2026-06-20 18:45:15,153  INFO      TURN_ON  switch.rgb_blue  off->on  client=10.2.201.236
+2026-06-20 18:45:15,153  INFO      TURN_ON  switch.rgb_blue  off->on  client=10.2.201.236
+2026-06-20 18:45:15,154  INFO      ESP32 CMD  entity=switch.rgb_blue  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 255], 0]
+2026-06-20 18:45:15,154  INFO      ESP32 CMD  entity=switch.rgb_blue  key=rgb  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 255], 0]
+2026-06-20 18:45:15,505  INFO      ESP32 RESP  200  OK
+2026-06-20 18:45:15,505  INFO      ESP32 RESP  200  OK
+2026-06-20 18:46:23,827  INFO      WS DISCONNECT  10.2.201.236:54870
+2026-06-20 18:46:23,827  INFO      WS DISCONNECT  10.2.201.236:54870
+2026-06-20 18:46:23,830  INFO      WS DISCONNECT  10.2.201.236:54856
+2026-06-20 18:46:23,830  INFO      WS DISCONNECT  10.2.201.236:54856
+2026-06-20 18:46:26,038  INFO      WS DISCONNECT  10.2.201.236:45690
+2026-06-20 18:46:26,038  INFO      WS DISCONNECT  10.2.201.236:45690
+2026-06-20 18:46:26,040  INFO      WS DISCONNECT  10.2.201.236:45680
+2026-06-20 18:46:26,040  INFO      WS DISCONNECT  10.2.201.236:45680
+2026-06-20 18:48:50,255  INFO      TURN_ON  switch.fan  off->on  client=10.2.142.44
+2026-06-20 18:48:50,255  INFO      TURN_ON  switch.fan  off->on  client=10.2.142.44
+2026-06-20 18:48:50,258  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:48:50,258  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:48:50,850  INFO      ESP32 RESP  200  OK
+2026-06-20 18:48:50,850  INFO      ESP32 RESP  200  OK
+2026-06-20 18:48:58,367  INFO      TURN_OFF  switch.fan  on->off  client=10.2.142.44
+2026-06-20 18:48:58,367  INFO      TURN_OFF  switch.fan  on->off  client=10.2.142.44
+2026-06-20 18:48:58,370  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:48:58,370  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:48:58,746  INFO      ESP32 RESP  200  OK
+2026-06-20 18:48:58,746  INFO      ESP32 RESP  200  OK
+2026-06-20 18:50:44,885  INFO      TURN_ON  switch.fan  off->on  client=10.2.142.44
+2026-06-20 18:50:44,885  INFO      TURN_ON  switch.fan  off->on  client=10.2.142.44
+2026-06-20 18:50:44,887  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:50:44,887  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 255]
+2026-06-20 18:50:45,468  INFO      ESP32 RESP  200  OK
+2026-06-20 18:50:45,468  INFO      ESP32 RESP  200  OK
+2026-06-20 18:50:52,491  INFO      TURN_OFF  switch.fan  on->off  client=10.2.142.44
+2026-06-20 18:50:52,491  INFO      TURN_OFF  switch.fan  on->off  client=10.2.142.44
+2026-06-20 18:50:52,493  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:50:52,493  INFO      ESP32 CMD  entity=switch.fan  key=fan_speed  cmd=[0, 0, 0, 0, 0, 0, [0, 0, 0], 0]
+2026-06-20 18:50:52,890  INFO      ESP32 RESP  200  OK
+2026-06-20 18:50:52,890  INFO      ESP32 RESP  200  OK
